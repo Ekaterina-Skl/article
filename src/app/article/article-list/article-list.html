@@ -1,0 +1,30 @@
+<button (click)="create()">Создать статью</button>
+
+<div class="list">
+  @for (article of articles(); track article.id) {
+    <div class="item">
+      <input
+        type="checkbox"
+        [checked]="isSelected(article.id)"
+        (change)="onCheckboxChange(article.id, $event)"
+      />
+
+      <h3>{{ article.title }}</h3>
+    </div>
+  }
+</div>
+
+@if (selectedIds().size > 0) {
+  <div class="actions">
+    <button
+      [disabled]="selectedIds().size !== 1"
+      (click)="editSelected()"
+    >
+      Редактировать
+    </button>
+
+    <button (click)="deleteSelected()">
+      Удалить ({{ selectedIds().size }})
+    </button>
+  </div>
+}

@@ -1,0 +1,35 @@
+.editor {
+  min-height: 200px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.toolbar {
+  margin: 10px 0;
+  display: flex;
+  gap: 10px;
+}
+
+.annotated {
+  position: relative;
+  cursor: pointer;
+}
+
+.annotated::after {
+  display: none;
+}
+
+.annotated:hover::after {
+  display: block;
+  content: attr(data-note);
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  background: black;
+  color: red;
+  padding: 6px 10px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 9999;
+  border-radius: 4px;
+}

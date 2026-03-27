@@ -1,0 +1,37 @@
+<input
+  placeholder="Заголовок"
+  [formControl]="titleControl"
+/>
+
+<div class="toolbar">
+  <button
+    (click)="annotate('yellow')"
+  >
+    Жёлтый
+  </button>
+  <button
+    (click)="annotate('lightgreen')"
+  >
+    Зелёный
+  </button>
+  <button
+    (click)="underline('red')"
+  >
+    Подчеркнуть
+  </button>
+</div>
+
+<div
+  #editor
+  class="editor"
+  contenteditable="true"
+  (input)="onInput()"
+></div>
+
+<button (click)="save()">
+  @if (isEditMode()) {
+    Сохранить изменения
+  } @else {
+    Создать статью
+  }
+</button>

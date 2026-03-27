@@ -1,0 +1,25 @@
+.annotated {
+  position: relative;
+  cursor: pointer;
+}
+
+.annotated:hover::after {
+  content: attr(data-note);
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  background: black;
+  color: white;
+  padding: 6px 10px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 9999;
+}
+
+.underline {
+  cursor: text;
+}
+
+.annotated[data-note]:hover::after {
+  content: attr(data-note);
+}
